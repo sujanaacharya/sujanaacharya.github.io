@@ -193,15 +193,17 @@
     <section id="about">
       <p class="label">About</p>
       <p class="lead">
-        I am an AI/ML engineer from Nepal with over two years of experience building and evaluating production AI systems.
-        I hold a Bachelor's degree in Electronics, Communication and Information Engineering from Thapathali Engineering
-        Campus, Tribhuvan University.
+        I'm a machine learning engineer from Lalitpur, Nepal. I studied Electronics, Communication and Information
+        Engineering at Thapathali Engineering Campus, Tribhuvan University, and graduated in 2024.
       </p>
       <p>
-        I currently work at Smart Data Solutions on medical image classification. Before that, I spent over two years at
-        NsDevil, a Korean EdTech company, building LLM-based scoring, speech evaluation and retrieval systems. In my own
-        time I run two AI safety research projects, CHANAKYA and SafetyBox. In the long term, I plan to contribute to AI
-        safety and governance.
+        Right now I work at Smart Data Solutions, training image classification models for a healthcare company. Before
+        this I spent a little over two years at NsDevil, a Korean EdTech company. I joined as an intern and ended up
+        building the systems that grade students' spoken and written Korean.
+      </p>
+      <p>
+        On the side, I've been working on two small AI safety projects, CHANAKYA and SafetyBox. In the long run I want to
+        work in AI safety and governance.
       </p>
       <div class="stats">
         <div><b>2+ yrs</b><span>ML engineering</span></div>
@@ -209,35 +211,37 @@
         <div><b>2</b><span>AI safety projects</span></div>
         <div><b>8.0</b><span>IELTS Academic</span></div>
       </div>
+    
     </section>
 
     <section id="research">
       <p class="label">Research</p>
-      <h2>What I work on</h2>
+      <h2>Research interests</h2>
+      <p class="muted">These are the areas I'm most curious about and hope to study further.</p>
 
       <div class="interest-list">
-        <div class="interest"><b>AI Safety</b><span>Authorization failures, agent boundaries, deterministic verification, unsafe autonomous behavior.</span></div>
-        <div class="interest"><b>AI Governance</b><span>Technical governance, accountability, auditing and evaluation standards for autonomous AI.</span></div>
-        <div class="interest"><b>Agentic AI and AGI</b><span>Autonomous agents, tool use, capability control, failure modes and alignment.</span></div>
-        <div class="interest"><b>Computational Neuroscience and NeuroAI</b><span>Biologically inspired learning, cognition and judgment, and links between artificial and biological intelligence.</span></div>
-        <div class="interest"><b>AI in Healthcare</b><span>Medical VQA, medical imaging and vision-language models for safe clinical use.</span></div>
-        <div class="interest"><b>Applied AI Research</b><span>LLM evaluation, RAG, multimodal and speech AI, automated scoring.</span></div>
+        <div class="interest"><b>AI Safety</b><span>How do we make sure an AI system, especially one that can take actions, only does what it is allowed to do?</span></div>
+        <div class="interest"><b>AI Governance</b><span>What checks, rules and audits should be in place before powerful AI is put to use?</span></div>
+        <div class="interest"><b>Agentic AI</b><span>How agents use tools, where they go wrong, and how much freedom we should give them.</span></div>
+        <div class="interest"><b>NeuroAI</b><span>How learning and judgment in the brain compare with the way machines learn.</span></div>
+        <div class="interest"><b>AI in Healthcare</b><span>Medical images and questions, where a wrong answer actually hurts someone. MediVQA is where this started for me.</span></div>
+        <div class="interest"><b>Evaluating AI</b><span>What it really means when a model "agrees" with human graders who don't always agree with each other.</span></div>
       </div>
 
-      <h3 class="sub">Ongoing AI safety research</h3>
+      <h3 class="sub">My AI safety projects</h3>
       <div class="grid2">
         <div class="card feature lift">
           <h3>CHANAKYA</h3>
-          <div class="meta">Authorization and vulnerability research &middot; Ongoing</div>
-          <p>Finds IDOR/BOLA, missing authorization and other broken access control in source code. It pairs deterministic authorization evidence with bounded AI investigation, so every finding traces back to real code and control flow. Current focus is Java and Spring.</p>
-          <div class="tags"><span class="tag">AI Safety</span><span class="tag">Static Analysis</span><span class="tag">Java</span></div>
+          <div class="meta">Ongoing</div>
+          <p>A tool I'm building to catch broken access control in code, the kind of bug where one user can see or change someone else's data. AI coding assistants make this mistake a lot. CHANAKYA gathers evidence from the code first and only then lets an AI look into it, so every finding points back to real lines of code. I'm starting with Java and Spring.</p>
+          <div class="tags"><span class="tag">Security</span><span class="tag">Static analysis</span><span class="tag">Java</span></div>
           <div class="more"><a href="https://github.com/sujanaacharya/chanakya-showcase">View on GitHub &rarr;</a></div>
         </div>
         <div class="card feature lift">
           <h3>SafetyBox</h3>
-          <div class="meta">Autonomous-agent safety &middot; Ongoing</div>
-          <p>Studies how agents go "rogue" when probabilistic reasoning directly controls privileged actions. Reasoning stays flexible, but task-scoped authorization and runtime checks keep the final say deterministic. Includes adversarial cases for false-allow and false-deny behavior.</p>
-          <div class="tags"><span class="tag">AI Agents</span><span class="tag">Authorization</span><span class="tag">Python</span></div>
+          <div class="meta">Ongoing</div>
+          <p>An experiment in keeping AI agents in line. The agent can think however it likes, but when it tries to actually do something, like delete a file or call an API, SafetyBox checks that action against what the task allows before letting it through. I test it with cases built to push the agent into misbehaving.</p>
+          <div class="tags"><span class="tag">AI agents</span><span class="tag">Permissions</span><span class="tag">Python</span></div>
           <div class="more"><a href="https://github.com/sujanaacharya/safetybox">View on GitHub &rarr;</a></div>
         </div>
       </div>
@@ -255,19 +259,19 @@
           <div class="more"><a href="https://doi.org/10.61463/ijset.vol.12.issue5.253">DOI</a><a href="https://www.ijset.in/automated-retail-billing-streamlining-checkout-qr-codes-object-tracking-using-yolov8-deepsort/">Article</a><a href="https://github.com/sujanaacharya/Automated-Retail-Billing-Streamlining-Checkout-with-QR-Codes-and-Object-Tracking-Using-YOLOv8-and-D">Code</a></div>
         </div>
       </div>
+    
     </section>
 
     <section id="experience">
       <p class="label">Experience</p>
-      <h2>Where I have worked</h2>
+      <h2>Experience</h2>
       <div class="card">
         <div class="job">
           <div class="when">OCT 2026 &ndash; NOW</div>
           <div>
             <h3>Software Engineer I, Machine Learning <span class="now">Current</span></h3>
             <p class="org">Smart Data Solutions</p>
-            <ul><li>Training and extending a CNN image classifier from 4 to 6 classes for a US-based healthcare company, targeting 99.5% accuracy.</li></ul>
-            <div class="tags"><span class="tag">CNNs</span><span class="tag">Medical imaging</span></div>
+            <ul><li>I'm extending an image classifier from 4 to 6 classes for a US healthcare company. The target is 99.5% accuracy.</li></ul>
           </div>
         </div>
         <div class="job">
@@ -276,9 +280,9 @@
             <h3>AI/ML Engineer</h3>
             <p class="org">NsDevil &middot; Korean EdTech</p>
             <ul>
-              <li>Built LLM-based scoring for students' written answers and checked it against real teachers using QWK.</li>
-              <li>Built speech evaluation for spoken Korean with ASR, forced alignment and pronunciation scoring.</li>
-              <li>Served and optimized LLMs in production, including HyperCLOVA X, plus RAG and semantic search.</li>
+              <li>Built the system that grades students' written answers, and compared its grades with real teachers' grades.</li>
+              <li>Built speech scoring for students learning Korean, covering pronunciation and fluency.</li>
+              <li>Set up and ran large language models in production, including Naver's HyperCLOVA X, along with search and RAG features.</li>
             </ul>
             <div class="tags"><span class="tag">QRMAC</span><span class="tag">Essay Scoring</span><span class="tag">Popkor</span><span class="tag">AlphaHowl</span><span class="tag">AI Tutor / MathPad</span></div>
           </div>
@@ -289,8 +293,8 @@
             <h3>AI Research Intern</h3>
             <p class="org">NsDevil</p>
             <ul>
-              <li>Built a RAG system for Korean curriculum content with GPT APIs and FAISS.</li>
-              <li>Built an encoder-decoder model turning handwritten math (InkML) into LaTeX, reaching 87% accuracy.</li>
+              <li>Started with data processing, then built a RAG system over Korean school curriculum content.</li>
+              <li>Built a model that reads handwritten math and turns it into LaTeX. It reached 87% accuracy.</li>
             </ul>
           </div>
         </div>
@@ -298,43 +302,44 @@
 
       <h3 class="sub">Skills</h3>
       <div class="skills">
-        <b>AI Safety</b><div class="chips"><span class="chip c1">Authorization</span><span class="chip c1">IDOR / BOLA</span><span class="chip c1">Deterministic verification</span><span class="chip c1">Agent safeguards</span><span class="chip c1">Adversarial evaluation</span></div>
+        <b>Security</b><div class="chips"><span class="chip c1">Authorization</span><span class="chip c1">IDOR / BOLA</span><span class="chip c1">Rule-based checks</span><span class="chip c1">Agent permissions</span><span class="chip c1">Static analysis</span></div>
         <b>LLMs and NLP</b><div class="chips"><span class="chip">LLM inference</span><span class="chip">vLLM</span><span class="chip">RAG</span><span class="chip">Embeddings</span><span class="chip">Reranking</span><span class="chip">BERT</span><span class="chip">HyperCLOVA X</span></div>
         <b>ML, Vision, Speech</b><div class="chips"><span class="chip">PyTorch</span><span class="chip">Hugging Face</span><span class="chip">scikit-learn</span><span class="chip">CNNs</span><span class="chip">YOLOv8</span><span class="chip">Whisper ASR</span><span class="chip">Forced alignment</span></div>
         <b>Evaluation</b><div class="chips"><span class="chip c2">QWK</span><span class="chip c2">WER / CER</span><span class="chip c2">BLEU / ROUGE</span><span class="chip c2">Human vs. model agreement</span></div>
         <b>Engineering</b><div class="chips"><span class="chip">Python</span><span class="chip">C / C++</span><span class="chip">SQL</span><span class="chip">FastAPI</span><span class="chip">Django</span><span class="chip">Docker</span><span class="chip">CUDA</span><span class="chip">PostgreSQL</span><span class="chip">Linux</span></div>
       </div>
+    
     </section>
 
     <section id="projects">
       <p class="label">Projects</p>
-      <h2>Things I have built</h2>
+      <h2>Projects</h2>
       <div class="projects">
         <div class="card project lift">
           <h3>MediVQA</h3>
-          <div class="meta">Thapathali Engineering Campus &middot; Award-winning</div>
-          <p>Answers questions about medical images using VisualBERT, with BERT for text and ResNet-101 for images. Ranked among the top three projects in the programme that year.</p>
-          <div class="tags"><span class="tag">Healthcare AI</span><span class="tag">VisualBERT</span><span class="tag">PyTorch</span></div>
+          <div class="meta">Thapathali Engineering Campus</div>
+          <p>Our final-year project. You give it a medical image and ask a question about it, and it answers. I was the one who suggested the medical topic. It was one of the top three projects in our programme that year, and we won an award for it.</p>
+          <div class="tags"><span class="tag">VisualBERT</span><span class="tag">PyTorch</span></div>
           <div class="more"><a href="https://github.com/sujanaacharya/medi_vqa">GitHub &rarr;</a><a href="https://doi.org/10.59324/ejaset.2025.3(5).08">Paper &rarr;</a></div>
         </div>
         <div class="card project lift">
           <h3>Automated Retail Billing</h3>
-          <div class="meta">Thapathali Engineering Campus &middot; LOCUS</div>
-          <p>QR-coded products on a conveyor are tracked by camera with YOLOv8 and DeepSORT on a Raspberry Pi, with expiry alerts. Presented at the LOCUS tech festival.</p>
-          <div class="tags"><span class="tag">Computer Vision</span><span class="tag">YOLOv8</span><span class="tag">Raspberry Pi</span></div>
+          <div class="meta">Thapathali Engineering Campus</div>
+          <p>A self-checkout idea. Products with QR codes move along a conveyor, a camera follows them using YOLOv8 and DeepSORT, and the bill adds up on its own. It ran on a Raspberry Pi, and we showed it at the LOCUS tech festival.</p>
+          <div class="tags"><span class="tag">YOLOv8</span><span class="tag">DeepSORT</span><span class="tag">Raspberry Pi</span></div>
           <div class="more"><a href="https://github.com/sujanaacharya/Automated-Retail-Billing-Streamlining-Checkout-with-QR-Codes-and-Object-Tracking-Using-YOLOv8-and-D">GitHub &rarr;</a><a href="https://doi.org/10.61463/ijset.vol.12.issue5.253">Paper &rarr;</a></div>
         </div>
         <div class="card project lift">
           <h3>Budget-Constrained AI Agent</h3>
-          <div class="meta">Personal &middot; 2026</div>
-          <p>A ReAct agent with web search, code execution and Wikipedia tools, under a hard limit of 10 LLM calls and $0.20 per task, with a live web UI.</p>
-          <div class="tags"><span class="tag">AI Agents</span><span class="tag">ReAct</span><span class="tag">Docker</span></div>
+          <div class="meta">Personal project</div>
+          <p>An agent that can search the web, run code and read Wikipedia, but has to finish within 10 model calls and 20 cents. If it runs over, it stops and tells you what it managed to get done.</p>
+          <div class="tags"><span class="tag">AI agents</span><span class="tag">Flask</span><span class="tag">Docker</span></div>
           <div class="more"><a href="https://github.com/sujanaacharya/agent_system">GitHub &rarr;</a></div>
         </div>
         <div class="card project lift">
           <h3>CV and Job Matching</h3>
-          <div class="meta">Personal &middot; 2025</div>
-          <p>Matches resumes to jobs with semantic search on pgvector plus scores for skills, experience and education. Web UI and REST API.</p>
+          <div class="meta">Personal project</div>
+          <p>Matches CVs to job posts. It compares them by meaning using embeddings in PostgreSQL, then adds simple scores for skills, experience and education.</p>
           <div class="tags"><span class="tag">Embeddings</span><span class="tag">pgvector</span><span class="tag">Django</span></div>
           <div class="more"><a href="https://github.com/sujanaacharya/CV_JOB_MATCHING">GitHub &rarr;</a></div>
         </div>
@@ -343,25 +348,25 @@
       <h3 class="sub">More on GitHub</h3>
       <div class="card">
         <ul class="others">
-          <li><a href="https://github.com/sujanaacharya/CV-Analyzer-AI-Interview-Chat">CV Analyzer and AI Interview Chat</a><span class="muted">Interview questions from your CV, with an AI practice chat</span></li>
-          <li><a href="https://github.com/sujanaacharya/Hospital-managemnet-system">Hospital Management System</a><span class="muted">My first Django project, built during COVID</span></li>
-          <li><a href="https://github.com/sujanaacharya/Implementation-of-machine-learning-algorithms">ML Algorithms from Scratch</a><span class="muted">Regression, SVM, decision trees, random forests</span></li>
-          <li><a href="https://github.com/sujanaacharya/mistral_chatbot">Mistral Chatbot</a><span class="muted">A Django chat app running a Mistral model</span></li>
-          <li><a href="https://github.com/sujanaacharya/society_management-">Society Management System</a><span class="muted">Members, events and announcements in Django</span></li>
+          <li><a href="https://github.com/sujanaacharya/CV-Analyzer-AI-Interview-Chat">CV Analyzer and AI Interview Chat</a><span class="muted">Upload a CV, get interview questions, practise with a chatbot</span></li>
+          <li><a href="https://github.com/sujanaacharya/Hospital-managemnet-system">Hospital Management System</a><span class="muted">My first Django project, made during COVID</span></li>
+          <li><a href="https://github.com/sujanaacharya/Implementation-of-machine-learning-algorithms">ML Algorithms from Scratch</a><span class="muted">Regression, SVM and tree models, written by hand</span></li>
+          <li><a href="https://github.com/sujanaacharya/mistral_chatbot">Mistral Chatbot</a><span class="muted">A small chat app running a Mistral model</span></li>
+          <li><a href="https://github.com/sujanaacharya/society_management-">Society Management System</a><span class="muted">A Django app for members and events</span></li>
         </ul>
       </div>
     </section>
 
     <section id="education">
       <p class="label">Education</p>
-      <h2>Learning</h2>
+      <h2>Education</h2>
       <div class="card">
         <div class="job" style="padding:0;border:none;">
           <div class="when">2019 &ndash; 2024</div>
           <div>
             <h3>Bachelor of Electronics, Communication and Information Engineering</h3>
             <p class="org">Thapathali Engineering Campus, IOE, Tribhuvan University</p>
-            <p class="small muted" style="margin:0;">First Division, 72.58%. Marks rose every year, from 66.8% to 80.7% in the final year. MediVQA ranked among the top three projects in the programme.</p>
+            <p class="small muted" style="margin:0;">First Division, 72.58%. My marks went up every year, from 66.8% in first year to 80.7% in my final year.</p>
             <details>
               <summary>Show coursework</summary>
               <table class="courses">
@@ -379,22 +384,22 @@
       <h3 class="sub">Certifications</h3>
       <div class="grid2">
         <div class="card"><h3 style="font-size:18px;margin:0 0 2px 0;">IELTS Academic</h3><span class="muted small">Overall band 8.0</span></div>
-        <div class="card"><h3 style="font-size:18px;margin:0 0 2px 0;">Effective Altruism Introductory Programme</h3><span class="muted small">Completed September 2026</span></div>
+        <div class="card"><h3 style="font-size:18px;margin:0 0 2px 0;">Effective Altruism Introductory Programme</h3><span class="muted small">Completed in September 2026</span></div>
       </div>
     </section>
 
     <section id="beyond">
       <p class="label">Beyond Work</p>
-      <h2>Outside the code</h2>
+      <h2>Beyond work</h2>
       <div class="grid2">
         <div class="card">
           <h3 style="font-size:18px;margin:0 0 12px 0;">Activities</h3>
-          <div class="act"><b>Dhriti, Thapathali Engineering Campus</b><span>Women-only student group running events, awareness programmes and blood donation drives, when the campus had fewer than 100 women.</span></div>
-          <div class="act"><b>LOCUS Tech Festival</b><span>Presented the Automated Retail Billing project.</span></div>
-          <div class="act"><b>Tutoring</b><span>Taught and marked work for Nepali students by hand.</span></div>
+          <div class="act"><b>Dhriti, Thapathali Engineering Campus</b><span>A women-only group on our campus. We organized events, awareness programmes and blood donation drives. Back then there were fewer than 100 women on the whole campus.</span></div>
+          <div class="act"><b>LOCUS Tech Festival</b><span>Presented our retail billing project.</span></div>
+          <div class="act"><b>Tutoring</b><span>Tutored Nepali students and marked their work by hand.</span></div>
         </div>
         <div class="card">
-          <h3 style="font-size:18px;margin:0 0 14px 0;">What I enjoy</h3>
+          <h3 style="font-size:18px;margin:0 0 14px 0;">When I'm not working</h3>
           <div class="hobbies"><div class="hobby"><span class="h-ic h1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5c3-1.5 6.5-1.5 10 1 3.5-2.5 7-2.5 10-1v14c-3-1.5-6.5-1.5-10 1-3.5-2.5-7-2.5-10-1z"/><path d="M12 6v14"/></svg></span><span>Reading Novels</span></div><div class="hobby"><span class="h-ic h2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 2l4 4 4-4M10 10l4 2-4 2z"/></svg></span><span>Watching Anime</span></div><div class="hobby"><span class="h-ic h3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16.5" cy="16.5" r="3"/><path d="M14.4 14.4L5 5M5 5l3 .5M5 5l.5 3M9 3l2.5 7.5M3 9l7.5 2.5"/></svg></span><span>Badminton</span></div><div class="hobby"><span class="h-ic h4"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span><span>Travelling</span></div></div>
         </div>
       </div>
@@ -402,8 +407,8 @@
 
     <section id="contact" style="margin-bottom:0;">
       <div class="contact">
-        <h2>Get in touch</h2>
-        <p>Always happy to talk about AI safety, research ideas or graduate study, and I never say no to a good novel or anime recommendation.</p>
+        <h2>Say hello</h2>
+        <p>I'm always up for a chat about AI safety, research or grad school. And if you have a novel or an anime to recommend, please send it my way.</p>
         <a class="btn" href="mailto:acharyasujana17@gmail.com">acharyasujana17@gmail.com</a>
       </div>
       <footer>&copy; 2026 Er. Sujana Acharya</footer>
