@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Er. Sujana Acharya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f4ef;
+    --card: #ffffff;
+    --ink: #24292f;
+    --soft: #5c6670;
+    --faint: #8a939b;
+    --line: #e4e2da;
+    --accent: #2f6466;
+    --accent-soft: #e6efee;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1, h2, h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; color: #1d2329; }
+
+  /* top nav */
+  .topnav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(245,244,239,0.94);
+    border-bottom: 1px solid var(--line);
+  }
+  .topnav .inner {
+    max-width: 980px; margin: 0 auto; padding: 0 22px;
+    display: flex; align-items: center; justify-content: space-between; height: 56px;
+  }
+  .topnav .brand { white-space: nowrap; margin-right: 24px; font-family: "Source Serif 4", Georgia, serif; font-weight: 600; color: var(--ink); font-size: 18px; }
+  .topnav nav { display: flex; gap: 16px; font-size: 15px; overflow-x: auto; }
+  .topnav nav a { color: var(--soft); white-space: nowrap; }
+  .topnav nav a:hover { color: var(--accent); text-decoration: none; }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+
+  /* header */
+  .hero {
+    display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: center;
+    padding: 56px 0 44px 0;
+  }
+  .hero img {
+    width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
+    border: 4px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .hero h1 { font-size: 40px; margin: 0 0 4px 0; line-height: 1.15; }
+  .hero .role { font-size: 19px; color: var(--soft); margin: 0 0 14px 0; }
+  .hero .intro { margin: 0 0 18px 0; max-width: 620px; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 7px 14px; border-radius: 6px; font-size: 15px;
+    border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.primary:hover { background: #26524f; color: #fff; }
+  .btn svg { width: 16px; height: 16px; }
+  .email-text { font-size: 14px; color: var(--faint); margin-top: 8px; }
+
+  /* sections */
+  section { padding: 14px 0 26px 0; scroll-margin-top: 70px; }
+  section h2 { font-size: 26px; margin: 0 0 16px 0; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 22px 26px;
+  }
+  .card p:last-child { margin-bottom: 0; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+  /* timeline */
+  .timeline { position: relative; margin: 0; padding: 0 0 0 28px; list-style: none; }
+  .timeline::before {
+    content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line);
+  }
+  .timeline > li { position: relative; margin-bottom: 18px; }
+  .timeline > li:last-child { margin-bottom: 0; }
+  .timeline > li::before {
+    content: ""; position: absolute; left: -27px; top: 26px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--card); border: 2px solid var(--accent);
+  }
+  .timeline > li.current::before { background: var(--accent); }
+  .t-date { font-size: 14px; color: var(--accent); font-weight: 600; letter-spacing: 0.02em; }
+  .t-title { font-family: "Source Serif 4", Georgia, serif; font-size: 20px; font-weight: 600; margin: 2px 0 0 0; }
+  .t-org { color: var(--soft); margin: 0 0 8px 0; }
+  .t-about { font-size: 15px; color: var(--soft); margin: 0 0 10px 0; }
+  .card ul { margin: 0; padding-left: 20px; }
+  .card li { margin-bottom: 5px; }
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.03em;
+    padding: 1px 8px; border-radius: 20px; background: var(--accent-soft); color: var(--accent);
+    vertical-align: middle; margin-left: 6px; font-family: "Source Sans 3", sans-serif;
+  }
+
+  /* interests */
+  .interests { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; }
+  .interests .card { padding: 18px 20px; }
+  .interests h3 { font-size: 18px; margin: 0 0 4px 0; }
+  .interests p { margin: 0; font-size: 15.5px; color: var(--soft); }
+
+  /* publications */
+  .pub + .pub { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 16px; }
+  .pub-title { font-weight: 600; margin: 0 0 3px 0; }
+  .pub-meta { font-size: 15px; color: var(--soft); margin: 0 0 6px 0; }
+  .pub-meta i { color: var(--ink); }
+  .small-links { font-size: 14.5px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* projects */
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .project { display: flex; flex-direction: column; }
+  .project h3 { font-size: 20px; margin: 0 0 2px 0; }
+  .project .meta { font-size: 14px; color: var(--faint); margin: 0 0 10px 0; }
+  .project p { font-size: 15.5px; margin: 0 0 12px 0; flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .tag { font-size: 13px; padding: 2px 9px; border-radius: 4px; background: #f1f0eb; color: var(--soft); }
+
+  /* coursework */
+  .courses { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+  .courses td { padding: 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .courses tr:last-child td { border-bottom: none; }
+  .courses td.group { width: 28%; font-weight: 600; padding-right: 18px; }
+
+  .card ul.list-plain { list-style: none; margin: 0; padding: 0; }
+  .list-plain li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .list-plain li:first-child { padding-top: 0; }
+  .list-plain li:last-child { border-bottom: none; padding-bottom: 0; }
+  .list-plain .sub { display: block; font-size: 15px; color: var(--soft); }
+
+  .skills-row { display: grid; grid-template-columns: 28% 1fr; gap: 18px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; }
+  .skills-row:last-child { border-bottom: none; }
+  .skills-row b { font-weight: 600; }
+
+  /* hobbies */
+  .hobbies { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .hobby { text-align: center; padding: 22px 12px; }
+  .hobby svg { width: 34px; height: 34px; color: var(--accent); margin-bottom: 8px; }
+  .hobby h3 { font-size: 17px; margin: 0; }
+
+  footer { text-align: center; color: var(--faint); font-size: 14px; padding: 30px 0 50px 0; }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; text-align: center; gap: 20px; padding-top: 36px; }
+    .hero img { margin: 0 auto; width: 160px; height: 160px; }
+    .hero .intro { margin-left: auto; margin-right: auto; }
+    .links { justify-content: center; }
+    .grid2, .projects { grid-template-columns: 1fr; }
+    .hobbies { grid-template-columns: 1fr 1fr; }
+    .courses td.group { width: 36%; }
+    .skills-row { grid-template-columns: 1fr; gap: 2px; }
+    .topnav .brand { display: none; }
+    .card { padding: 18px; }
+  }
+
+  /* eye-catching touches */
+  .hero {
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0, rgba(255,255,255,0) 100%), #e9f0ee;
+    background-image: radial-gradient(rgba(47,100,102,0.10) 1px, transparent 1px);
+    background-size: 18px 18px;
+    background-color: #e8efed;
+    border: 1px solid #d6e2df;
+    border-radius: 16px;
+    padding: 44px 44px 32px 44px;
+    margin-top: 32px;
+    margin-bottom: 30px;
+    row-gap: 28px;
+  }
+  .hero img { border-color: #ffffff; box-shadow: 0 4px 14px rgba(31,64,66,0.18); }
+  .status {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 500; font-style: italic; color: #7a4b12;
+    background: #fbeed8; border: 1px solid #f1d9ae; border-radius: 20px;
+    padding: 3px 12px; margin-bottom: 12px;
+  }
+  .status .dot { width: 7px; height: 7px; border-radius: 50%; background: #d48a1f; }
+  .stats {
+    grid-column: 1 / -1;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: #ffffff; border: 1px solid #d6e2df; border-radius: 10px;
+  }
+  .stats > div { padding: 14px 18px; border-right: 1px solid var(--line); }
+  .stats > div:last-child { border-right: none; }
+  .stats b { display: block; font-family: "Source Serif 4", Georgia, serif; font-size: 24px; color: var(--accent); line-height: 1.2; }
+  .stats span { font-size: 14px; color: var(--soft); }
+
+  section h2 { position: relative; padding-bottom: 8px; }
+  section h2::after {
+    content: ""; position: absolute; left: 0; bottom: 0;
+    width: 38px; height: 3px; border-radius: 2px; background: #d48a1f;
+  }
+
+  .card { transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease; }
+  .project:hover, .interests .card:hover, .hobby:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(36,41,47,0.07);
+    border-color: #d3d0c5;
+  }
+  .project { border-top: 3px solid var(--accent); }
+
+  .interests .card { border-top: 3px solid var(--accent); }
+  .interests .i1 { border-top-color: #2f6466; }
+  .interests .i2 { border-top-color: #b0533c; }
+  .interests .i3 { border-top-color: #3d5a8a; }
+  .interests .i4 { border-top-color: #d48a1f; }
+  .interests .i5 { border-top-color: #5f7d3c; }
+
+  .timeline > li.current .card { border-left: 3px solid var(--accent); }
+
+  .hobby svg { width: 26px; height: 26px; padding: 13px; box-sizing: content-box; border-radius: 50%; }
+  .h1 svg { background: #e3eeec; color: #2f6466; }
+  .h2 svg { background: #f6e3dd; color: #b0533c; }
+  .h3 svg { background: #e2e8f3; color: #3d5a8a; }
+  .h4 svg { background: #fbeed8; color: #b06e10; }
+
+  .contact-band {
+    background: #2f6466; color: #fff; border-radius: 16px;
+    padding: 30px 36px; margin: 30px 0 0 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  }
+  .contact-band h2 { color: #fff; margin: 0 0 4px 0; font-size: 26px; }
+  .contact-band p { margin: 0; color: #d7e6e4; }
+  .btn.light { background: #fff; border-color: #fff; color: #2f6466; font-weight: 600; }
+  .btn.light:hover { background: #f1f6f5; color: #24504f; }
+
+  @media (max-width: 760px) {
+    .hero { padding: 28px 20px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stats > div:nth-child(2) { border-right: none; }
+    .stats > div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .contact-band { padding: 24px; }
+  }
+  .interests .i6 { border-top-color: #7a5c8e; }
+  .sub-systems { margin-top: 12px; font-size: 14.5px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .sub-systems b { margin-right: 4px; }
+  #ongoing .project { border-top-color: #d48a1f; }
+  #ongoing ul { font-size: 15.5px; }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="inner">
+    <a class="brand" href="#top">Er. Sujana Acharya</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#research">Interests</a>
+      <a href="#ongoing">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      
+      <a href="#activities">Activities</a>
+      <a href="#interests">Hobbies</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap" id="top">
+
+  <header class="hero">
+    <img src="sujana.jpg" alt="Photo of Sujana Acharya">
+    <div>
+      <div class="status">Curious enough to ask, careful enough to check.</div>
+      <h1>Er. Sujana Acharya</h1>
+      <p class="role">AI/ML Research Engineer &middot; AI Safety, Agentic Systems and Applied AI &middot; Lalitpur, Nepal</p>
+      <p class="intro">
+        AI/ML engineer with over two years of experience building and evaluating production AI systems, from LLM-based
+        scoring and speech evaluation to medical image classification. My research centers on AI safety, with long-term
+        interests in AI governance, NeuroAI and AI in healthcare.
+      </p>
+      <div class="links">
+        <a class="btn primary" href="mailto:acharyasujana17@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          Email
+        </a>
+        <a class="btn" href="https://github.com/sujanaacharya">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="cv.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+          CV
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/sujanaacharya17">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.82-2.06 3.75-2.06 4 0 4.74 2.64 4.74 6.07v5.39h-4v-4.78c0-1.14-.02-2.6-1.59-2.6-1.59 0-1.83 1.24-1.83 2.52v4.86h-4z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+      <div class="email-text">acharyasujana17@gmail.com</div>
+    </div>
+    <div class="stats">
+      <div><b>2+ years</b><span>ML engineering</span></div>
+      <div><b>2</b><span>Publications</span></div>
+      <div><b>2</b><span>AI safety research projects</span></div>
+      <div><b>8.0</b><span>IELTS Academic</span></div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About</h2>
+    <div class="card">
+      <p>
+        I hold a Bachelor's degree in Electronics, Communication and Information Engineering from Thapathali Engineering
+        Campus, Tribhuvan University. I currently work at Smart Data Solutions, a US-based company, on medical image
+        classification. Before that, I spent over two years at NsDevil, a Korean EdTech company, where I started as an AI
+        Research Intern and went on to build LLM-based scoring, speech evaluation and retrieval systems used in production.
+      </p>
+      <p>
+        Outside work, I run two independent AI safety research projects, CHANAKYA and SafetyBox, both about making sure AI
+        systems only do what they are allowed to do. My interests are AI safety, AI governance, agentic AI, NeuroAI and
+        AI in healthcare. In the long term, I plan to contribute to AI safety and governance.
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="timeline">
+      <li class="current">
+        <div class="card">
+          <div class="t-date">Oct 2026 &ndash; Present <span class="badge">Current</span></div>
+          <div class="t-title">Software Engineer I, Machine Learning</div>
+          <div class="t-org">Smart Data Solutions</div>
+          <p class="t-about">A US-based healthcare company.</p>
+          <ul>
+            <li>Training and extending a CNN image classifier from 4 to 6 classes, with a target accuracy of 99.5%.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="card">
+          <div class="t-date">Aug 2024 &ndash; Sep 2026 &middot; 2 years 2 months</div>
+          <div class="t-title">AI/ML Engineer</div>
+          <div class="t-org">NsDevil &middot; Lalitpur, Nepal</div>
+          <p class="t-about">A Korean EdTech and AI systems company.</p>
+          <ul>
+            <li>Designed, built, evaluated and deployed production AI systems spanning LLMs, speech processing, educational assessment, retrieval and multimodal AI.</li>
+            <li>Built automated scoring pipelines for Korean-language education, including rubric-based LLM scoring, model comparison and Quadratic Weighted Kappa (QWK) evaluation against teachers.</li>
+            <li>Built speech-evaluation pipelines with Whisper-style ASR, forced alignment, pronunciation analysis and WER/CER/PER metrics, followed by LLM-based semantic and fluency assessment.</li>
+            <li>Deployed and optimized transformer and LLM inference with PyTorch, Hugging Face, vLLM, FastAPI, Docker and CUDA, including Korean LLMs such as HyperCLOVA X.</li>
+            <li>Developed retrieval and semantic search with dense embeddings, FAISS, reranking and RAG, and contributed to CI/CD and MLOps.</li>
+          </ul>
+          <div class="sub-systems">
+            <b>Selected systems:</b>
+            <span class="tag">QRMAC / Rubric Templating</span><span class="tag">Essay Scoring</span><span class="tag">Popkor (speech evaluation)</span><span class="tag">AlphaHowl LLM services</span><span class="tag">AI Tutor / MathPad</span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="card">
+          <div class="t-date">Apr 2024 &ndash; Jul 2024 &middot; 4 months</div>
+          <div class="t-title">AI Research Intern</div>
+          <div class="t-org">NsDevil &middot; Lalitpur, Nepal</div>
+          <ul>
+            <li>Built a retrieval-augmented generation system for Korean curriculum content using GPT APIs, FAISS and embedding-based retrieval.</li>
+            <li>Built an encoder-decoder handwriting recognition model converting InkML to LaTeX, reaching 87% accuracy with a maximum sequence length of 500.</li>
+            <li>Analyzed student-performance data with classical machine learning and explored transformer, computer vision and vision-language models.</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <ul class="timeline">
+      <li>
+        <div class="card">
+          <div class="t-date">Nov 2019 &ndash; Jul 2024</div>
+          <div class="t-title">Bachelor of Electronics, Communication and Information Engineering</div>
+          <div class="t-org">Thapathali Engineering Campus, Institute of Engineering, Tribhuvan University, Kathmandu</div>
+          <ul>
+            <li>First Division, aggregate 72.58%.</li>
+            <li>Marks rose every year, from 66.8% in first year to 80.7% in final year.</li>
+            <li>MediVQA ranked among the top three projects in the programme that year; the team received an award for it.</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- RESEARCH INTERESTS -->
+  <section id="research">
+    <h2>Research Interests</h2>
+    <div class="interests">
+      <div class="card i1">
+        <h3>AI Safety</h3>
+        <p>Authorization and access-control failures, agent boundary enforcement, deterministic verification, and evaluating unsafe autonomous behavior.</p>
+      </div>
+      <div class="card i3">
+        <h3>AI Governance</h3>
+        <p>Technical governance mechanisms, accountability, controllability, deployment safeguards, auditing and evaluation standards for autonomous AI.</p>
+      </div>
+      <div class="card i4">
+        <h3>Agentic AI and AGI</h3>
+        <p>Autonomous agents, long-horizon reasoning, tool use, capability control, failure modes, alignment and robustness.</p>
+      </div>
+      <div class="card i5">
+        <h3>Computational Neuroscience and NeuroAI</h3>
+        <p>Biologically inspired learning and evaluation, neural correlates of cognition and judgment, and models that connect artificial and biological intelligence.</p>
+      </div>
+      <div class="card i2">
+        <h3>AI in Healthcare</h3>
+        <p>Medical visual question answering, medical imaging and vision-language models, and safe, reliable AI for clinical settings.</p>
+      </div>
+      <div class="card i6">
+        <h3>Applied AI Research</h3>
+        <p>LLM evaluation, retrieval-augmented generation, multimodal systems, speech AI, automated scoring and production inference.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONGOING RESEARCH -->
+  <section id="ongoing">
+    <h2>Ongoing AI Safety Research</h2>
+    <div class="grid2">
+      <div class="card project">
+        <h3>CHANAKYA</h3>
+        <div class="meta">Web2 vulnerability detection and authorization research &middot; Ongoing</div>
+        <ul>
+          <li>A research system for finding IDOR/BOLA, missing authorization and other broken access control failures in source code.</li>
+          <li>Combines deterministic authorization evidence with bounded AI investigation, so every conclusion traces back to concrete code and control flow, not a guess.</li>
+          <li>Current focus on Java and Spring authorization patterns, with techniques meant to generalize to other Web2 stacks.</li>
+        </ul>
+        <div class="tags" style="margin-top:14px;"><span class="tag">AI Safety</span><span class="tag">Security</span><span class="tag">Static Analysis</span><span class="tag">Java</span></div>
+        <div class="small-links"><a href="https://github.com/sujanaacharya/CHANAKYA">View on GitHub &rarr;</a></div>
+      </div>
+      <div class="card project">
+        <h3>SafetyBox</h3>
+        <div class="meta">Autonomous-agent safety and authorization &middot; Ongoing</div>
+        <ul>
+          <li>Studies how autonomous agents can behave in unsafe or "rogue" ways when probabilistic reasoning directly controls privileged actions.</li>
+          <li>Explores task-scoped authorization, runtime mediation and capability limits, so reasoning stays flexible while final authority stays deterministic.</li>
+          <li>Builds adversarial and counterfactual cases to measure false-allow and false-deny behavior.</li>
+        </ul>
+        <div class="tags" style="margin-top:14px;"><span class="tag">AI Agents</span><span class="tag">Authorization</span><span class="tag">AI Safety</span><span class="tag">Python</span></div>
+        <div class="small-links"><a href="https://github.com/sujanaacharya/safetybox">View on GitHub &rarr;</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="card">
+      <div class="pub">
+        <p class="pub-title">MediVQA: Medical Visual Question Answering using VisualBERT</p>
+        <p class="pub-meta">
+          B. Dahal, S. Bhatta, A. Shrestha, <b>S. Acharya</b>, S. Shakya &middot;
+          <i>European Journal of Applied Science, Engineering and Technology</i>, 3(5), 96&ndash;104, 2025
+        </p>
+        <div class="small-links">
+          <a href="https://doi.org/10.59324/ejaset.2025.3(5).08">Paper (DOI: 10.59324/ejaset.2025.3(5).08)</a>
+          <a href="https://ejaset.com/index.php/journal/article/view/350">Article</a>
+          <a href="https://github.com/sujanaacharya/medi_vqa">Code on GitHub</a>
+        </div>
+      </div>
+      <div class="pub">
+        <p class="pub-title">Automated Retail Billing: Streamlining Checkout with QR Codes and Object Tracking Using YOLOv8 and DeepSORT</p>
+        <p class="pub-meta">
+          B. Dahal, S. Bhatta, <b>S. Acharya</b>, A. Shrestha, P. Acharya &middot;
+          <i>International Journal of Science, Engineering and Technology</i>, 12(5), 2024
+        </p>
+        <div class="small-links">
+          <a href="https://doi.org/10.61463/ijset.vol.12.issue5.253">Paper (DOI: 10.61463/ijset.vol.12.issue5.253)</a>
+          <a href="https://www.ijset.in/automated-retail-billing-streamlining-checkout-qr-codes-object-tracking-using-yolov8-deepsort/">Article</a>
+          <a href="https://github.com/sujanaacharya/Automated-Retail-Billing-Streamlining-Checkout-with-QR-Codes-and-Object-Tracking-Using-YOLOv8-and-D">Code on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card project">
+        <h3>MediVQA</h3>
+        <div class="meta">Undergraduate research &middot; Thapathali Engineering Campus &middot; 2023 &ndash; 2024</div>
+        <p>Answers questions about medical images using VisualBERT, with BERT for text and ResNet-101 for images, trained on VQA-Med-2019, ImageCLEFmed MEDVQA and SLAKE 1.0. I suggested the medical domain to the team. Ranked among the top three projects in the programme that year.</p>
+        <div class="tags"><span class="tag">Healthcare AI</span><span class="tag">VisualBERT</span><span class="tag">PyTorch</span></div>
+        <div class="small-links"><a href="https://github.com/sujanaacharya/medi_vqa">View on GitHub &rarr;</a><a href="https://doi.org/10.59324/ejaset.2025.3(5).08">Paper &rarr;</a></div>
+      </div>
+      <div class="card project">
+        <h3>Automated Retail Billing</h3>
+        <div class="meta">Undergraduate research &middot; Thapathali Engineering Campus &middot; Third year</div>
+        <p>Products with QR codes move on a conveyor belt and are tracked by a camera with YOLOv8 and DeepSORT, all running on a Raspberry Pi, with expiry alerts. Presented at the LOCUS tech festival.</p>
+        <div class="tags"><span class="tag">Computer Vision</span><span class="tag">YOLOv8</span><span class="tag">DeepSORT</span><span class="tag">Raspberry Pi</span></div>
+        <div class="small-links"><a href="https://github.com/sujanaacharya/Automated-Retail-Billing-Streamlining-Checkout-with-QR-Codes-and-Object-Tracking-Using-YOLOv8-and-D">View on GitHub &rarr;</a><a href="https://doi.org/10.61463/ijset.vol.12.issue5.253">Paper &rarr;</a></div>
+      </div>
+      <div class="card project">
+        <h3>Handwriting to LaTeX</h3>
+        <div class="meta">NsDevil internship &middot; 2024</div>
+        <p>An encoder-decoder model that turns handwritten math strokes (InkML) into LaTeX, reaching 87% accuracy with a maximum sequence length of 500.</p>
+        <div class="tags"><span class="tag">Seq2Seq</span><span class="tag">Handwriting Recognition</span></div>
+      </div>
+      <div class="card project">
+        <h3>Hospital Management System</h3>
+        <div class="meta">Personal project &middot; 2020</div>
+        <p>A Django web application for managing hospital records, built while classes moved online during COVID. My first real software project.</p>
+        <div class="tags"><span class="tag">Django</span><span class="tag">Python</span><span class="tag">Web</span></div>
+        <div class="small-links"><a href="https://github.com/sujanaacharya/Hospital-managemnet-system">View on GitHub &rarr;</a></div>
+      </div>
+      <div class="card project">
+        <h3>Budget-Constrained AI Agent</h3>
+        <div class="meta">Personal project &middot; 2026</div>
+        <p>A ReAct agent that completes tasks using web search, code execution and Wikipedia, under a hard limit of 10 LLM calls and $0.20 per task. A budget enforcer stops the agent the moment it goes over and reports what it finished. Live web UI shows each thought, tool call and replanning step.</p>
+        <div class="tags"><span class="tag">AI Agents</span><span class="tag">ReAct</span><span class="tag">Flask</span><span class="tag">Docker</span></div>
+        <div class="small-links"><a href="https://github.com/sujanaacharya/agent_system">View on GitHub &rarr;</a></div>
+      </div>
+      <div class="card project">
+        <h3>CV and Job Matching</h3>
+        <div class="meta">Personal project &middot; 2025</div>
+        <p>Matches resumes to job postings using semantic search over embeddings in PostgreSQL with pgvector, combined with scores for skills, experience level and education. Includes a web interface and a REST API.</p>
+        <div class="tags"><span class="tag">Embeddings</span><span class="tag">pgvector</span><span class="tag">Django</span><span class="tag">REST API</span></div>
+        <div class="small-links"><a href="https://github.com/sujanaacharya/CV_JOB_MATCHING">View on GitHub &rarr;</a></div>
+      </div>
+      <div class="card project">
+        <h3>CV Analyzer and AI Interview Chat</h3>
+        <div class="meta">Personal project &middot; 2025</div>
+        <p>Upload a CV and get interview questions generated from it at different difficulty levels, then practise answering them with an AI chat assistant that keeps your history.</p>
+        <div class="tags"><span class="tag">LLMs</span><span class="tag">Gemini API</span><span class="tag">Django</span></div>
+        <div class="small-links"><a href="https://github.com/sujanaacharya/CV-Analyzer-AI-Interview-Chat">View on GitHub &rarr;</a></div>
+      </div>
+      <div class="card project">
+        <h3>Smaller Projects</h3>
+        <div class="meta">Learning and practice</div>
+        <ul class="list-plain" style="font-size:15.5px;">
+          <li><a href="https://github.com/sujanaacharya/Implementation-of-machine-learning-algorithms">ML Algorithms from Scratch</a><span class="sub">Linear regression, SVM, decision trees and random forests in notebooks.</span></li>
+          <li><a href="https://github.com/sujanaacharya/mistral_chatbot">Mistral Chatbot</a><span class="sub">A Django chat app running a Mistral model.</span></li>
+          <li><a href="https://github.com/sujanaacharya/society_management-">Society Management System</a><span class="sub">A Django app for members, events and announcements.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Technical Expertise</h2>
+    <div class="card">
+      <div class="skills-row"><b>AI Safety and Agents</b><span>Authorization, IDOR/BOLA reasoning, access-control analysis, deterministic verification, autonomous-agent safeguards, capability boundaries, adversarial evaluation</span></div>
+      <div class="skills-row"><b>LLM and NLP</b><span>LLM inference, prompt and system design, RAG, embeddings, reranking, BERT-family models, HyperCLOVA X, Mistral-class models, seq2seq, evaluation</span></div>
+      <div class="skills-row"><b>ML and Deep Learning</b><span>PyTorch, Hugging Face Transformers, Datasets and Accelerate, scikit-learn, XGBoost, CNNs, model evaluation, dataset analysis</span></div>
+      <div class="skills-row"><b>Speech and Multimodal</b><span>Whisper-style ASR, forced alignment, pronunciation evaluation, OpenCV, YOLOv8, DeepSORT, ResNet, vision-language architectures</span></div>
+      <div class="skills-row"><b>Evaluation</b><span>QWK, accuracy, precision and recall, BLEU, ROUGE, WER/CER/PER, benchmarking, human vs. model agreement analysis</span></div>
+      <div class="skills-row"><b>Programming</b><span>Python, C, C++, SQL</span></div>
+      <div class="skills-row"><b>Backend and MLOps</b><span>FastAPI, Django REST Framework, Docker, Docker Compose, GitHub Actions, Linux, Nginx, CUDA, PostgreSQL, MySQL, SQLite, FAISS, GPU deployment</span></div>
+      <div class="skills-row"><b>Languages</b><span>Nepali (native), English (professional working proficiency, IELTS Academic 8.0)</span></div>
+    </div>
+  </section>
+
+  <!-- COURSEWORK -->
+  <section id="coursework">
+    <h2>Coursework</h2>
+    <div class="card">
+      <table class="courses">
+        <tr><td class="group">Mathematics and Statistics</td><td>Engineering Mathematics I, II and III; Applied Mathematics; Probability and Statistics; Numerical Methods; Discrete Structure</td></tr>
+        <tr><td class="group">AI and Data</td><td>Artificial Intelligence; Big Data Technologies (Elective); Database Management Systems; Information Systems; Multimedia System (Elective)</td></tr>
+        <tr><td class="group">Signals and Communication</td><td>Digital Signal Analysis and Processing; Filter Design; Communication Systems; Telecommunications; Wireless Communication; Computer Network</td></tr>
+        <tr><td class="group">Programming and Systems</td><td>Computer Programming; Object Oriented Programming; Data Structure and Algorithm; Object Oriented Software Engineering; Operating Systems; Computer Organization and Architecture; Microprocessor; Embedded System; Computer Graphics</td></tr>
+        <tr><td class="group">Research and Projects</td><td>Automated Retail Billing using YOLOv8 and DeepSORT; MediVQA: Medical Visual Question Answering using VisualBERT</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3 style="margin:0 0 2px 0;font-size:19px;">IELTS Academic</h3>
+        <div class="t-org" style="margin:0;">Overall band 8.0</div>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 2px 0;font-size:19px;">Effective Altruism Introductory Programme</h3>
+        <div class="t-org" style="margin:0;">Completed September 2026. Strengthened my interest in AI safety, governance and long-term technological risk.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVITIES -->
+  <section id="activities">
+    <h2>Extracurricular Activities</h2>
+    <div class="card">
+      <ul class="list-plain">
+        <li>
+          <b>Dhriti</b>, Thapathali Engineering Campus
+          <span class="sub">Member of a women-only student group that organized events, awareness programmes and blood donation drives, at a time when there were fewer than 100 women across the whole campus.</span>
+        </li>
+        <li>
+          <b>LOCUS Tech Festival</b>
+          <span class="sub">Presented the Automated Retail Billing project at the LOCUS tech festival.</span>
+        </li>
+        <li>
+          <b>Tutoring</b>
+          <span class="sub">Taught and marked work for Nepali students by hand, which later shaped how I think about automated grading.</span>
+        </li>
+        <li>
+          <b>MediVQA Project Award</b>
+          <span class="sub">MediVQA ranked among the top three projects in the programme that year.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="interests">
+    <h2>Outside of Work</h2>
+    <div class="hobbies">
+      <div class="card hobby h1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5c3-1.5 6.5-1.5 10 1 3.5-2.5 7-2.5 10-1v14c-3-1.5-6.5-1.5-10 1-3.5-2.5-7-2.5-10-1z"/><path d="M12 6v14"/></svg>
+        <h3>Reading Novels</h3>
+      </div>
+      <div class="card hobby h2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 2l4 4 4-4M10 10l4 2-4 2z"/></svg>
+        <h3>Watching Anime</h3>
+      </div>
+      <div class="card hobby h3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16.5" cy="16.5" r="3"/><path d="M14.4 14.4L5 5M5 5l3 .5M5 5l.5 3M9 3l2.5 7.5M3 9l7.5 2.5"/></svg>
+        <h3>Badminton</h3>
+      </div>
+      <div class="card hobby h4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+        <h3>Travelling</h3>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="wrap">
+  <div class="contact-band">
+    <div>
+      <h2>Get in touch</h2>
+      <p>I am always happy to talk about AI safety, research ideas or graduate study, and I never say no to a good novel or anime recommendation.</p>
+    </div>
+    <a class="btn light" href="mailto:acharyasujana17@gmail.com">acharyasujana17@gmail.com</a>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 Er. Sujana Acharya &middot; Last updated November 2026
+</footer>
+
+</body>
+</html>
